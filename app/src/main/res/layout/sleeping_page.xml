@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SleepingActivity">
+
+    <ImageButton
+        android:id="@+id/backButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/back_arrow"
+        android:contentDescription="Back"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:scaleType="fitCenter"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/sleepTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수면 기록"
+        android:textSize="24sp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/sleepDurationLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수면 시간"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sleepTitle"/>
+
+    <EditText
+        android:id="@+id/sleepDurationInput"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="예: 8시간"
+        android:inputType="number"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sleepDurationLabel"
+        android:padding="16dp"/>
+
+    <TextView
+        android:id="@+id/sleepQualityLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="수면 질"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sleepDurationInput"/>
+
+    <RadioGroup
+        android:id="@+id/sleepQualityGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sleepQualityLabel">
+
+        <RadioButton
+            android:id="@+id/radioPoor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="불량" />
+
+        <RadioButton
+            android:id="@+id/radioAverage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="보통" />
+
+        <RadioButton
+            android:id="@+id/radioGood"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="좋음" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/saveButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="저장"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sleepQualityGroup" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
