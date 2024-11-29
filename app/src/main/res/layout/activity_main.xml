@@ -17,44 +17,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/diaryBtn"
+    <LinearLayout
+        android:id="@+id/buttonLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="일기 쓰기"
-        android:layout_marginTop="70dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainTitle"/>
+        app:layout_constraintTop_toBottomOf="@id/mainTitle"
+        android:layout_marginTop="32dp"
+        android:padding="16dp" >
 
-    <Button
-        android:id="@+id/walkingBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="산책 가기"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/diaryBtn"/>
+        <Button
+            android:id="@+id/diaryBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="일기 쓰기" />
 
-    <Button
-        android:id="@+id/sleepingBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="수면 기록"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/walkingBtn"/>
+        <Button
+            android:id="@+id/walkingBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="산책 가기" />
 
-    <Button
-        android:id="@+id/myPageBtn"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="마이페이지"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/sleepingBtn"/>
+        <Button
+            android:id="@+id/sleepingBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="수면 기록" />
+
+        <Button
+            android:id="@+id/myPageBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="마이페이지" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
