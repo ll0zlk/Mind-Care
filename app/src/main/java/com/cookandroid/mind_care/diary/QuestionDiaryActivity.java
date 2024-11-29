@@ -70,7 +70,7 @@ public class QuestionDiaryActivity extends AppCompatActivity {
                 if (content.isEmpty()) {
                     Toast.makeText(QuestionDiaryActivity.this, "내용을 입력해주세요.", Toast.LENGTH_SHORT).show();
                 } else {
-                    String selectedDate = selectedYear + "-" + selectedMonth + "-" + selectedDay;
+                    String selectedDate = selectedYear + "-" + String.format("%02d", Integer.parseInt(selectedMonth)) + "-" + String.format("%02d", Integer.parseInt(selectedDay));
                     dbHelper.insertDiaryEntry(selectedDate, question, content);
                     Toast.makeText(QuestionDiaryActivity.this, selectedDate+ "의 일기가 기록되었습니다!", Toast.LENGTH_SHORT).show();;
                 }
