@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".diary.DiaryActivity" />
-        <activity android:name=".questiondiary.QuestionDiaryActivity" />
+        <activity android:name=".diary.QuestionDiaryActivity" />
         <activity android:name=".WalkingActivity" />
         <activity android:name=".SleepingActivity" />
         <activity android:name=".MyPageActivity" />

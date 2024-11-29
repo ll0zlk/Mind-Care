@@ -10,7 +10,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.cookandroid.mind_care.diary.DiaryActivity;
-import com.cookandroid.mind_care.questiondiary.QuestionDiaryActivity;
+import com.cookandroid.mind_care.diary.QuestionDiaryActivity;
 
 public class MainActivity extends AppCompatActivity {
 

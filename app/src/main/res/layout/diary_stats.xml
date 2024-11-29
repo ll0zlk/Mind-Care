@@ -11,10 +11,19 @@
         android:layout_alignParentTop="true" />
 
     <TextView
-        android:id="@+id/diaryEntryTextView"
+        android:id="@+id/diaryTypeTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/calendarView"
-        android:paddingTop="16dp"
+        android:layout_marginTop="32dp"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/diaryEntryTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/diaryTypeTextView"
+        android:layout_marginTop="16dp"
         android:textSize="16sp" />
 </RelativeLayout>
