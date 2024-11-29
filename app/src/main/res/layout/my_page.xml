@@ -49,12 +49,14 @@
             android:id="@+id/stepStatsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="걸음 수 통계" />
 
         <Button
             android:id="@+id/sleepStatsButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="수면 시간 통계" />
     </LinearLayout>
 
