@@ -5,7 +5,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 public class QuestionDB extends SQLiteOpenHelper {
-    private static final String DB_NAME = "mindcare.db";
+    private static final String DB_NAME = "questions.db";
     private static final int DB_VERSION = 1;
 
     public QuestionDB(Context context) {
