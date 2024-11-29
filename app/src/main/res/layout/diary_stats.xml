@@ -11,7 +11,7 @@
         android:layout_alignParentTop="true" />
 
     <TextView
-        android:id="@+id/diaryTypeTextView"
+        android:id="@+id/diaryDateTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/calendarView"
@@ -23,7 +23,7 @@
         android:id="@+id/diaryEntryTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/diaryTypeTextView"
+        android:layout_below="@id/diaryDateTextView"
         android:layout_marginTop="16dp"
         android:textSize="16sp" />
 </RelativeLayout>

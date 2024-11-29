@@ -12,7 +12,7 @@ import com.cookandroid.mind_care.diary.QuestionDiaryDBHelper;
 public class DiaryStatsActivity extends AppCompatActivity {
 
     private CalendarView calendarView;
-    private TextView diaryEntryTextView, diaryTypeTextView;
+    private TextView diaryEntryTextView, diaryDateTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class DiaryStatsActivity extends AppCompatActivity {
         setContentView(R.layout.diary_stats);
 
         calendarView = findViewById(R.id.calendarView);
-        diaryTypeTextView = findViewById(R.id.diaryTypeTextView);
+        diaryDateTextView = findViewById(R.id.diaryDateTextView);
         diaryEntryTextView = findViewById(R.id.diaryEntryTextView);
 
         DiaryDBHelper dbHelper = new DiaryDBHelper(this);
@@ -31,9 +31,9 @@ public class DiaryStatsActivity extends AppCompatActivity {
             String diaryEntry = dbHelper.getDiaryEntry(selectedDate);
             String qdiaryEntry = qdbHelper.getDiaryEntry(selectedDate);
             String question = qdbHelper.getQuestion(selectedDate);
+            diaryDateTextView.setText("📮 " + selectedDate);
 
             if (diaryEntry != null || qdiaryEntry != null) {
-                diaryTypeTextView.setText("✏️ " + selectedDate);
                 if (diaryEntry != null) {
                     diaryEntryTextView.setText(diaryEntry);
                 } else {
