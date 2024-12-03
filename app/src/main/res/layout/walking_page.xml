@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".WalkingActivity">
+    android:layout_height="match_parent">
 
     <ImageButton
         android:id="@+id/backButton"
@@ -17,10 +15,10 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"
         android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/walkingTitle"
+        android:id="@+id/walkTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="산책 기록"
@@ -28,46 +26,49 @@
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/walkingTimeLabel"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/walkStatsLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="산책 시작/종료 시간"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintTop_toBottomOf="@id/walkTitle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/walkingTitle"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp">
 
-    <TextView
-        android:id="@+id/walkingSteps"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="걸음 수: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/walkingTimeLabel"/>
+        <TextView
+            android:id="@+id/stepCountText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="총 걸음수: 0 걸음"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
-    <TextView
-        android:id="@+id/walkingDistance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="이동 거리: 0 m"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/walkingSteps"/>
+        <TextView
+            android:id="@+id/walkTimeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="산책 시간: 0초"
+            android:textSize="18sp"
+            android:padding="8dp" />
 
-    <Button
-        android:id="@+id/showPathButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="경로 보기"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/walkingDistance"/>
+        <Button
+            android:id="@+id/startWalkBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="산책 시작"
+            android:layout_marginTop="16dp" />
+
+        <Button
+            android:id="@+id/stopWalkBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="산책 종료"
+            android:visibility="gone"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
