@@ -53,34 +53,59 @@ public class SleepStatsActivity extends AppCompatActivity {
         });
     }
 
+    public class SleepData {
+        private int duration;  // 수면 지속 시간
+        private String quality; // 수면 질
+
+        public SleepData(int duration, String quality) {
+            this.duration = duration;
+            this.quality = quality;
+        }
+
+        public int getDuration() {
+            return duration;
+        }
+
+        public String getQuality() {
+            return quality;
+        }
+    }
+
+
     @SuppressLint("NewApi")
     private void updateSleepGrid() {
-        Map<Integer, Integer> sleepDurationMap = getSleepDataForMonth(currentMonth);
+        Map<Integer, SleepData> sleepDataMap = getSleepDataForMonth(currentMonth);
 
         for (int i = 1; i <= 31; i++) {
             int resID = getResources().getIdentifier("view" + i, "id", getPackageName());
             TextView daySquare = findViewById(resID);
 
-            int duration = sleepDurationMap.getOrDefault(i, 0);
+            SleepData sleepData = sleepDataMap.getOrDefault(i, new SleepData(0, "unknown"));
+            int duration = sleepData.getDuration();
+            String quality = sleepData.getQuality();
+
             daySquare.setBackgroundColor(getColorForDuration(duration));
+            daySquare.setTextColor(getColorForQuality(quality));
         }
     }
 
-    private Map<Integer, Integer> getSleepDataForMonth(int month) {
-        Map<Integer, Integer> sleepData = new HashMap<>();
-        Cursor cursor = db.rawQuery("SELECT date, duration FROM sleep WHERE date LIKE ?",
+    private Map<Integer, SleepData> getSleepDataForMonth(int month) {
+        Map<Integer, SleepData> sleepDataMap = new HashMap<>();
+        Cursor cursor = db.rawQuery("SELECT date, duration, quality FROM sleep WHERE date LIKE ?",
                 new String[]{"2024-" + (month < 10 ? "0" + month : month) + "%"});
 
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 String fullDate = cursor.getString(cursor.getColumnIndex("date"));
-                int day = Integer.parseInt(fullDate.split("-")[2]); // 날짜 추출
+                int day = Integer.parseInt(fullDate.split("-")[2]);
                 int duration = cursor.getInt(cursor.getColumnIndex("duration"));
-                sleepData.put(day, duration);
+                String quality = cursor.getString(cursor.getColumnIndex("quality"));
+
+                sleepDataMap.put(day, new SleepData(duration, quality)); // SleepData 객체 생성
             }
             cursor.close();
         }
-        return sleepData;
+        return sleepDataMap;
     }
 
     private int getColorForDuration(int duration) {
@@ -96,6 +121,19 @@ public class SleepStatsActivity extends AppCompatActivity {
             return Color.parseColor("#CCE5CC");
         } else {
             return Color.parseColor("#C5C5C5");
+        }
+    }
+
+    private int getColorForQuality(String quality) {
+        switch (quality) {
+            case "불량":
+                return Color.parseColor("#ff9595");
+            case "보통":
+                return Color.parseColor("#FFE08C");
+            case "좋음":
+                return Color.parseColor("#B2CCFF");
+            default:
+                return Color.parseColor("#7AFFFFFF"); // 기본 색상
         }
     }
 
