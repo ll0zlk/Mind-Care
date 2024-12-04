@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SleepStatsActivity">
+    tools:context=".sleep.SleepStatsActivity">
 
     <ImageButton
         android:id="@+id/backButton"
@@ -400,7 +400,7 @@
             android:layout_columnSpan="4"
             android:background="#C5C5C5"
             android:fontFamily="@font/alfa_slab_one"
-            android:textColor="#7AFFFFFF"
+            android:textColor="#FFFFFF"
             android:textSize="15sp"
             android:gravity="center"
             android:text="Have a good night 🌙" />

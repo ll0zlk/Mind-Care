@@ -47,8 +47,6 @@ public class WalkingActivity extends AppCompatActivity implements SensorEventLis
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WalkingActivity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });

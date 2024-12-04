@@ -48,8 +48,6 @@ public class DiaryActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(DiaryActivity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
