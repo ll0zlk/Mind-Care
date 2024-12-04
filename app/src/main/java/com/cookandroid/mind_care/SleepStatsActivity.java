@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Gravity;
+import android.widget.Button;
 import android.widget.GridLayout;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -32,8 +33,8 @@ public class SleepStatsActivity extends AppCompatActivity {
 
         currentMonthLabel = findViewById(R.id.currentMonthLabel);
         sleepGrid = findViewById(R.id.sleepGrid);
-        ImageButton prevMonthButton = findViewById(R.id.prevMonthButton);
-        ImageButton nextMonthButton = findViewById(R.id.nextMonthButton);
+        Button prevMonthButton = findViewById(R.id.prevMonthButton);
+        Button nextMonthButton = findViewById(R.id.nextMonthButton);
 
         SleepDBHelper dbHelper = new SleepDBHelper(this);
         db = dbHelper.getReadableDatabase();
@@ -43,19 +44,15 @@ public class SleepStatsActivity extends AppCompatActivity {
         updateSleepGrid();
 
         prevMonthButton.setOnClickListener(v -> {
-            if (currentMonth > 1) {
-                currentMonth--;
-                currentMonthLabel.setText(currentMonth + "월");
-                updateSleepGrid();
-            }
+            currentMonth = (currentMonth == 1) ? 12 : currentMonth - 1;
+            currentMonthLabel.setText(currentMonth + "월");
+            updateSleepGrid();
         });
 
         nextMonthButton.setOnClickListener(v -> {
-            if (currentMonth < 12) {
-                currentMonth++;
-                currentMonthLabel.setText(currentMonth + "월");
-                updateSleepGrid();
-            }
+            currentMonth = (currentMonth == 12) ? 1 : currentMonth + 1;
+            currentMonthLabel.setText(currentMonth + "월");
+            updateSleepGrid();
         });
     }
 
