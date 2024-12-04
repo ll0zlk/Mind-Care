@@ -5,11 +5,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Gravity;
 import android.widget.Button;
 import android.widget.GridLayout;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -63,6 +60,9 @@ public class SleepStatsActivity extends AppCompatActivity {
         for (int i = 1; i <= 31; i++) {
             int resID = getResources().getIdentifier("view" + i, "id", getPackageName());
             TextView daySquare = findViewById(resID);
+
+            int duration = sleepDurationMap.getOrDefault(i, 0);
+            daySquare.setBackgroundColor(getColorForDuration(duration));
         }
     }
 
@@ -92,8 +92,10 @@ public class SleepStatsActivity extends AppCompatActivity {
             return Color.parseColor("#66AA66");
         } else if (duration >= 3) {
             return Color.parseColor("#99CC99");
+        } else if (duration >= 1) {
+            return Color.parseColor("#CCE5CC");
         } else {
-            return Color.parseColor("#CCE5CC"); // 가장 연한 색
+            return Color.parseColor("#C5C5C5");
         }
     }
 

@@ -22,8 +22,8 @@ public class SleepDBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (" +
                 COLUMN_DATE + " TEXT PRIMARY KEY, " +
-                COLUMN_DURATION + " TEXT, " +
-                COLUMN_QUALITY + " TEXT)";
+                COLUMN_DURATION + " INTEGER, " +
+                COLUMN_QUALITY + " INTEGER)";
         db.execSQL(createTable);
     }
 
@@ -33,8 +33,8 @@ public class SleepDBHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void insertSleepEntry(String date, String duration, String quality) {
-        SQLiteDatabase db = this.getReadableDatabase();
+    public void insertSleepEntry(String date, int duration, String quality) {
+        SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_DATE, date);
         values.put(COLUMN_DURATION, duration);
