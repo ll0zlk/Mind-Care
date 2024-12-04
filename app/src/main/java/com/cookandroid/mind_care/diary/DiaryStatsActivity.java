@@ -1,13 +1,14 @@
-package com.cookandroid.mind_care;
+package com.cookandroid.mind_care.diary;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.CalendarView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cookandroid.mind_care.diary.DiaryDBHelper;
-import com.cookandroid.mind_care.diary.QuestionDiaryDBHelper;
+import com.cookandroid.mind_care.R;
 
 public class DiaryStatsActivity extends AppCompatActivity {
 
@@ -22,6 +23,14 @@ public class DiaryStatsActivity extends AppCompatActivity {
         calendarView = findViewById(R.id.calendarView);
         diaryDateTextView = findViewById(R.id.diaryDateTextView);
         diaryEntryTextView = findViewById(R.id.diaryEntryTextView);
+        ImageButton backButton = findViewById(R.id.backButton);
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         DiaryDBHelper dbHelper = new DiaryDBHelper(this);
         QuestionDiaryDBHelper qdbHelper = new QuestionDiaryDBHelper(this);

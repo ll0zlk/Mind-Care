@@ -8,6 +8,9 @@ import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.cookandroid.mind_care.diary.DiaryStatsActivity;
+import com.cookandroid.mind_care.sleep.SleepStatsActivity;
+
 public class MyPageActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +24,10 @@ public class MyPageActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MyPageActivity.this, MainActivity.class);
-                startActivity(intent);
                 finish();
             }
         });
+
 
         diaryStatsButton.setOnClickListener(new View.OnClickListener() {
             @Override

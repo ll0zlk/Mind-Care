@@ -29,8 +29,8 @@
         <activity android:name=".WalkingActivity" />
         <activity android:name=".sleep.SleepingActivity" />
         <activity android:name=".MyPageActivity" />
-        <activity android:name=".DiaryStatsActivity" />
-        <activity android:name=".SleepStatsActivity" />
+        <activity android:name=".diary.DiaryStatsActivity" />
+        <activity android:name=".sleep.SleepStatsActivity" />
     </application>
 
 </manifest>

@@ -1,17 +1,19 @@
-package com.cookandroid.mind_care;
+package com.cookandroid.mind_care.sleep;
 
 import android.annotation.SuppressLint;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.cookandroid.mind_care.sleep.SleepDBHelper;
+import com.cookandroid.mind_care.R;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -28,6 +30,7 @@ public class SleepStatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sleep_stats);
 
+        ImageButton backButton = findViewById(R.id.backButton);
         currentMonthLabel = findViewById(R.id.currentMonthLabel);
         sleepGrid = findViewById(R.id.sleepGrid);
         Button prevMonthButton = findViewById(R.id.prevMonthButton);
@@ -39,6 +42,13 @@ public class SleepStatsActivity extends AppCompatActivity {
         currentMonthLabel.setText(currentMonth + "월");
 
         updateSleepGrid();
+
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         prevMonthButton.setOnClickListener(v -> {
             currentMonth = (currentMonth == 1) ? 12 : currentMonth - 1;
