@@ -58,19 +58,11 @@ public class SleepStatsActivity extends AppCompatActivity {
 
     @SuppressLint("NewApi")
     private void updateSleepGrid() {
-        sleepGrid.removeAllViews();
-
         Map<Integer, Integer> sleepDurationMap = getSleepDataForMonth(currentMonth);
 
         for (int i = 1; i <= 31; i++) {
-            TextView daySquare = new TextView(this);
-            daySquare.setText(String.valueOf(i));
-            daySquare.setGravity(Gravity.CENTER);
-            daySquare.setTextSize(16);
-            daySquare.setLayoutParams(new GridLayout.LayoutParams());
-            daySquare.setBackgroundColor(getColorForDuration(sleepDurationMap.getOrDefault(i, 0)));
-            daySquare.setPadding(10, 10, 10, 10);
-            sleepGrid.addView(daySquare);
+            int resID = getResources().getIdentifier("view" + i, "id", getPackageName());
+            TextView daySquare = findViewById(resID);
         }
     }
 
