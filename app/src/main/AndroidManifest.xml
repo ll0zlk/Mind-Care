@@ -27,10 +27,10 @@
         <activity android:name=".diary.DiaryActivity" />
         <activity android:name=".diary.QuestionDiaryActivity" />
         <activity android:name=".WalkingActivity" />
-        <activity android:name=".SleepingActivity" />
+        <activity android:name=".sleep.SleepingActivity" />
         <activity android:name=".MyPageActivity" />
         <activity android:name=".DiaryStatsActivity" />
-
+        <activity android:name=".SleepStatsActivity" />
     </application>
 
 </manifest>

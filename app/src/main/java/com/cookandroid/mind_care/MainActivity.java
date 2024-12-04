@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.cookandroid.mind_care.diary.DiaryActivity;
 import com.cookandroid.mind_care.diary.QuestionDiaryActivity;
+import com.cookandroid.mind_care.sleep.SleepingActivity;
 
 public class MainActivity extends AppCompatActivity {
 
