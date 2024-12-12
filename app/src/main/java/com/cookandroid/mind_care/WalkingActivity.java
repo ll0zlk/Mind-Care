@@ -80,8 +80,7 @@ public class WalkingActivity extends AppCompatActivity implements SensorEventLis
 
     private void stopWalking() {
         isWalking = false;
-        //stepCountText.setText("총 걸음수: " + stepCount + " 걸음");
-        stepCountText.setText("총 걸음수: 13 걸음");
+        stepCountText.setText("총 걸음수: " + stepCount + " 걸음");
         walkTimeText.setText("산책 시간: " + ((System.currentTimeMillis() - startTime) / 1000) + "초");
 
         startWalkBtn.setVisibility(Button.VISIBLE);
